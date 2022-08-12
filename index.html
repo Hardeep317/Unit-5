@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll the dice</title>
+    <style>
+        #container{
+            width: 30%;
+            margin: auto;
+            border: groove;
+            background-color: aqua;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        #container div{
+            height: 50px;
+            margin: auto;
+            width: 100%;
+            text-align: center;
+            padding-top: 25px;
+            margin-top: 1px;
+        }
+
+        h1{
+            background-color: grey;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 9px;
+        }
+
+        #btn-div{
+            width: 40%;
+            margin: auto;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Roll The Dice</h1>
+
+    <div id="container">
+        <div id="member-1"></div>
+        <div id="member-2"></div>
+        <div id="member-3"></div>
+    </div>
+    <div id="btn-div">
+    <button id="roll">ROLL THE DICE</button>   
+    </div> 
+</body>
+</html>
+
+<script>
+    document.getElementById("roll").addEventListener("click" , Findresult)
+    function Findresult(){
+        var total_1 =  0;
+        var total_2 =  0;
+        var total_3 =  0;
+        total_1 += findNum() ;
+        total_2 += findNum() ;
+        total_3 += findNum() ;
+        var member1 = document.getElementById("member-1");
+        var member2 = document.getElementById("member-2");
+        var member3 = document.getElementById("member-3");
+    document.getElementById("member-1").innerText = total_1;
+    document.getElementById("member-2").innerText = total_2;
+    document.getElementById("member-3").innerText = total_3;
+
+
+    if(total_1 > total_2 && total_2 > total_3) {
+        member1.style.backgroundColor = "green";
+        member2.style.backgroundColor = "yellow";
+        member3.style.backgroundColor = "red";
+    }else if(total_1 > total_2 && total_1 < total_3){
+        member1.style.backgroundColor = "yellow";
+        member2.style.backgroundColor = "red";
+        member3.style.backgroundColor = "green";
+    }else if(total_2 > total_1 && total_1 > total_3){
+        member1.style.backgroundColor = "yellow";
+        member2.style.backgroundColor = "green";
+        member3.style.backgroundColor = "red";
+    }else if(total_1 === total_3 && total_1 < total_2){
+        member1.style.backgroundColor = "blue";
+        member2.style.backgroundColor = "green";
+        member3.style.backgroundColor = "blue";
+    }else if(total_1 == total_2 && total_1 < total_3){
+        member1.style.backgroundColor = "blue";
+        member2.style.backgroundColor = "blue";
+        member3.style.backgroundColor = "green";
+    }else if(total_2 == total_3 && total_1 > total_2 || total_1 > total_3){
+        member1.style.backgroundColor = "green";
+        member2.style.backgroundColor = "blue";
+        member3.style.backgroundColor = "blue";
+    }
+    }
+    function findNum() {
+        return (Math.round(Math.random() * 100)%6) + 1;
+    }
+</script>
