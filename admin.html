@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        #top-container{
+            display: block;
+            width: 30%;
+            margin-left: 44%;
+            margin-right: 35%;
+            margin-top: 30px;
+        }
+
+        #container{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            font-size: 15px;
+        }
+
+         input{
+            display: block;
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        #gender{
+            margin-bottom: 10px;
+        }
+
+        #add{
+            font-size: 15px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-display: inline;
+            margin-left: 5px;
+        }
+
+        #heading{
+            font-family:cursive;
+            text-align: center;
+            background-color: rgb(77, 75, 75);
+            color: white;
+            padding: 10px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Admin Page</h1>
+
+    <div id="top-container">
+        <form action="" id="container">
+            <input type="text" id="name" placeholder="Enter Product Name">
+            <input type="text" id="category" placeholder="Enter Category">
+            <input type="url" id="image" placeholder="Enter Image URL">
+            <input type="number" id="price" placeholder="Enter Price">
+            <input type="text" id="gender" placeholder="Enter Gender">
+            <input type = "text"id="sold" placeholder="Enter Sold Status">
+            <button type="submit" id="add">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+
+    document.getElementById("add").addEventListener("click", Data);
+    var arr = JSON.parse(localStorage.getItem("Products")) || [];
+
+    console.log(arr);
+    function Data() {
+        var name = document.getElementById("name").value;
+        var category = document.getElementById("category").value;
+        var image = document.getElementById("image").value;
+        var price = document.getElementById("price").value;
+        var gender = document.getElementById("gender").value;
+        var sold = document.getElementById("sold").value;
+        var Oobj = {
+            name : name, category : category, image : image, price : price, gender : gender, sold : sold
+        }
+
+        arr.push(Oobj);
+        localStorage.setItem("Products", JSON.stringify(arr));
+    }
+</script>
+
