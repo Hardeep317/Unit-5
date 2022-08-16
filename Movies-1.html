@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <style>
+    #container{
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-size: large;
+        font-weight: bold;
+        row-gap: 20px;
+        column-gap: 20px;
+        color: black;
+    }
+
+    #container div{
+        display: block;
+        border-radius: 8px;
+    }
+
+    #container div:hover{
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    #container div  p{
+        width: 100%;
+        padding-left:10px ;
+    }
+
+    #container div img{
+        width: 100%;
+        height: 310px;
+        margin: auto;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+    var arr = [
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_5l9raS4OWKZ1V1EamAQLZHKHlphql9MPTA&usqp=CAU",
+         name: "Doctor Strange in Multiverse of Madness",
+        Release_date: "12-July-2022",
+        rating: "⭐8.7/10"
+        },
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPGJlB1_flMrgBOCKD5zJbrkNwfJd8Vn6eTQ&usqp=CAU",
+         name: "Thor : Love and Thunder",
+        Release_date: "25-August-2022",
+        rating: "⭐4.7/10"
+        },
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSzDR_KArUp25acL9hE8tAiNQ-XTt6vfO72w&usqp=CAU",
+         name: "Eternals",
+        Release_date: "6-February-2022",
+        rating: "⭐6.4/10"
+        },
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYbCEQt0gfBmPcm2v7jU7SsvAlzfS_9i5EBg&usqp=CAU",
+         name: "Captain Marvel",
+        Release_date: "30-November-2021",
+        rating: "⭐9.2/10"
+        },
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrKHrwLnrQziNX3VZrVbvDBM4lMSBHLnNUlg&usqp=CAU",
+         name: "Deadpool",
+        Release_date: "1-March-2017",
+        rating: "⭐8.5/10"
+        },
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLXRQ6TjZi_iol541VrCuGkAuemQ2YCPLYTA&usqp=CAU",
+         name: "Moon Knight",
+        Release_date: "10-May-2022",
+        rating: "⭐5.6/10"
+        },
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAmcWzmfddKkxpyTJTqKbmnHOrqBELx2LuMg&usqp=CAU",
+         name: "Ms Marvel",
+        Release_date: "15-April-2022",
+        rating: "⭐6.9/10"
+        },
+        {poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeewCQwXY1b8SrlKW5Iw1LY-N9Xiievww4bg&usqp=CAU",
+         name: "The Falcon and The Winter Soldier",
+        Release_date: "22-January-2022",
+        rating: "⭐3.5/10"
+        },
+        {poster:"data:image/jpeg;base64,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",
+         name: "Black Adam",
+        Release_date: "22-October-2022",
+        rating: "⭐__/10"
+        },
+    ]
+
+    display();
+    function display(){
+        arr.map(function(elem,index){
+            var div = document.createElement("div");
+            var name = document.createElement("p");
+            name.innerHTML = elem.name;
+            var poster = document.createElement("img")
+            poster.setAttribute("src", elem.poster);
+
+            var release_date = document.createElement("p");
+            release_date.innerText = "Releasing On : "+elem.Release_date;
+
+            var rating = document.createElement("p");
+            rating.innerText ="IMDB Rating :" +elem.rating;
+
+            div.append(poster, name , release_date , rating);
+            document.querySelector("#container").append(div)
+        })
+    }
+
+
+</script>
