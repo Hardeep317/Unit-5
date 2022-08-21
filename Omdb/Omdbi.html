@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <style>
+
+    nav{
+        background-color: black;
+        display: flex;
+    }
+
+    input{
+        font-size: 20px;
+        padding: 8px 15px;
+        margin-left: 430px;
+        margin-top: 20px;
+        border-radius: 8px;
+    }
+
+    #btn{
+        font-size: 20px;
+        margin-left: 525px;
+        margin-top: 10px;
+        border-radius: 8px;
+        padding: 8px 15px;
+    }
+    #container{
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+
+    #container  div{
+        height: 530px;
+        background-color: #ccc;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    nav img{
+        width: 200px;
+        height: 130px;
+    }
+
+    p{
+        font-size: larger;
+        font-weight: bolder;
+        color: black;
+    }
+
+    body{
+        background-image: url("https://c.tenor.com/FPv0yHBo7e8AAAAC/goku-super-saiyan.gif");
+        background-repeat: no-repeat;
+            background-size: 100% ;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <img src="data:image/png;base64,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" alt="">
+        </div>
+        <div><input id="search" type="text" placeholder="Enter Movie Name">
+        <button id="btn">Search</button></div>
+    </nav>
+    <div id="container">
+        
+    </div>
+</body>
+<script src="/Unit-5/Movie.js"></script>
+</html>
