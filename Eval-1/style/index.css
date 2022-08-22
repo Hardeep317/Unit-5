@@ -1,0 +1,26 @@
+#navbar {
+    display: flex;
+    border: 1px solid black;
+    justify-content: right;
+}
+
+#navbar div{
+    margin-left: 20px;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+#sub-container{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+    margin-top: 20px;
+}
+
+img{
+    height: 60%;
+    width:100%;
+}
