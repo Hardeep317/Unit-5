@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotstar Trending</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } */
+        
+        body {
+            background-color: rgb(47, 47, 47);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.814);
+            display: flex;
+            text-align: center;
+            padding: 15px 0 5px 20px;
+            /* margin: auto; */
+        }
+
+        h1{
+            margin: 5px 0 5px 30px;
+        }
+        img {
+            width: 100%;
+            height: 89%;
+            object-fit: cover;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+
+        #show {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            justify-content: space-around;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+     <a href="trending.html"><h1>Hotstar Trending</h1>
+    </header>
+    <div id="show">
+    </div>
+</body>
+
+</html>
+<script>
+    async function getData() {
+        var res = await fetch("https://api.themoviedb.org/3/movie/popular?api_key=be08383c1f4230e2f648e303b9bf5612");
+        var res1 = await res.json();
+        console.log(res1.results, "test1");
+        display(res1.results)
+    }
+    getData()
+
+    function display(data) {
+        var display = document.getElementById("show");
+
+        data.map(function (e) {
+            var div = document.createElement("div");
+            var div2 = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.src = `https://image.tmdb.org/t/p/w300${e.poster_path}`
+
+            div2.append(image);
+
+            var title = document.createElement("h3");
+            title.innerText = e.title;
+
+            var { vote_average } = e;
+            div.style.textAlign = "center";
+            
+            div.append(div2, title, vote_average);
+            display.append(div);
+        })
+    }
+</script>
