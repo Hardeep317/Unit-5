@@ -12,7 +12,6 @@
             justify-content:space-between ;
             margin-top: 20px;
         }
-
         /* #container{
         } */
         #sub-container{
@@ -116,6 +115,22 @@
         #set{
             height: 20px;
         }
+
+        #sday{
+            display: flex;
+            /* From https://css.glass */
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border: 2px white solid;
+            width: 44%;
+        }
+        
+        #sub{
+            color: #ccc;
+            margin: 3px 7px;
+            font-weight: bolder;
+            font-weight: 900;
+        }
     </style>
 </head>
 <body onload="getPost()">
@@ -126,13 +141,19 @@
             <button id="btn" onclick="getWeather()">Submit</button>
             <p id="p1">Different Weather?</p>
             <p id="p2">Metric : <sup>o</sup>C, m/s</p>
+            <!-- <a href=""></a> -->
         </div>
     </nav>
+    
     <div id="parent">
         <div id="container">
             
         </div>
         <div class="mapouter"><div class="mapouter"><iframe width="600" height="500" id="ambd_map" src="" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
+        </div>
+
+        <div id="sday" >
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoT0GniNm8QX23KAc9_zklCoOdwy6VEZVj6Q&usqp=CAU" alt="" onclick="showData()">
         </div>
 </body>
 <script src="../Weather/Weather.js"></script>

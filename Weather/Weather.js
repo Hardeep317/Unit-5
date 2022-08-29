@@ -1,10 +1,10 @@
+
 async function getWeather(){
-    try{
+  try{
         const city = document.getElementById("city").value;
         const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9c97c6b217ae25662a3a8b669e117fb5&units=metric`);
         const res2 = await res.json();
         
-        // console.log(res2);
         const ambd_map = document.getElementById('ambd_map');
     var content = document.getElementById("container");
     const card = `
@@ -22,9 +22,9 @@ async function getWeather(){
     }catch(err){
         console.log(err , 'err');
     }
-}
-
-
+  }
+  
+  
   function getPost(){
  async function success(pos) {
     const crd = pos.coords;
@@ -33,10 +33,10 @@ async function getWeather(){
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
     console.log(`More or less ${crd.accuracy} meters.`);
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=9c97c6b217ae25662a3a8b669e117fb5`)
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${crd.latitude}&lon=${crd.longitude}&exclude=hourly,minutely&appid=a77df68bcd9e098229cb3c8e6441dfbc`)
     const res2 = await res.json();
-
-    console.log(res2.data);
+    // showData()
+    console.log(res2);
 
     const ambd_map = document.getElementById('ambd_map');
     var content = document.getElementById("container");
@@ -51,8 +51,37 @@ async function getWeather(){
     <div id="humidity"> Humidity :${res2.main.humidity}</div>
     </div>`
     content.innerHTML =  card;
-    ambd_map.src = `https://maps.google.com/maps?q=${res2.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+    ambd_map.src = `https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`
   }
   navigator.geolocation.getCurrentPosition(success);
   
 }
+
+ function showData(){
+  async function success(pos) {
+    const crd = pos.coords;
+  
+    // console.log('Your current position is:');
+    // console.log(`Latitude : ${crd.latitude}`);
+    // console.log(`Longitude: ${crd.longitude}`);
+    // console.log(`More or less ${crd.accuracy} meters.`);
+    const sdays = document.getElementById("sday");
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${crd.latitude}&lon=${crd.longitude}&exclude=hourly,minutely&appid=a77df68bcd9e098229cb3c8e6441dfbc&units=metric`)
+    const res2 = await res.json();
+    
+    console.log(res2.daily);
+    sdays.innerHTML = "";
+    res2.daily.forEach(el => {
+      sdays.innerHTML +=`
+      <div id="sub">
+      <p> ${el.temp.max}<sup>o</sup>C</p>
+      <p> ${el.temp.min}<sup>o</sup>C</p>
+      </div>`
+    });
+  }
+  navigator.geolocation.getCurrentPosition(success);
+}
+
+
+// https://api.openweathermap.org/data/2.5/onecall?lat=${crd.latitude}&lon=${crd.longitude}&exclude=hourly,minutely&appid=9c97c6b217ae25662a3a8b669e117fb5
+// https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=a77df68bcd9e098229cb3c8e6441dfbc
