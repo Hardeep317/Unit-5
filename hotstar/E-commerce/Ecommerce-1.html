@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            width: 80%;
+            margin: auto;
+            grid-row-gap: 10px;
+            /* grid-column-gap: 20px; */
+            font-weight: bolder;
+            text-align: left;
+        }
+        #container div{
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        #container div:hover{
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+        img{
+            height: 200px;
+            width: 100%;
+        }
+
+        .sold{
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: white;
+            margin-right: 116px;
+        }
+
+        #remove{
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: rgb(78, 141, 223);
+            color: white;
+        }
+
+        h1{
+            background-color: chocolate;
+            text-align: center;
+            padding: 20px 20px;
+            border-radius: 8px;
+            color: white;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Fashion Hub</h1>
+    <div id="container"></div>
+</body>
+<script src="./Product.js"></script>
+</html>
