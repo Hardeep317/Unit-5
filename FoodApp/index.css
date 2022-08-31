@@ -1,0 +1,95 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    border-radius: 8px;
+}
+
+#div1 {
+    margin: 5px 15px;
+}
+#items{
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+}
+
+#items h3 > a:hover{
+    background-color: crimson;
+}
+#searchIt :nth-child(1){
+    font-size: 20px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+#searchIt :nth-child(2){
+    font-size: 20px;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+#container {
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    border-radius: 8px;
+}
+#container .sub-random-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+    margin-top: 30px ;
+    row-gap: 20px;
+    column-gap: 15px;
+    padding: 15px 15px;
+    border-radius: 8px;
+}
+
+.sub-sub-container{
+    display: block;
+    text-align: center;
+    border-radius: 9px;
+}
+
+
+.sub-sub-container div:nth-child(1){
+    background-color: black;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.sub-sub-container div:nth-child(2){
+    background-color: brown;
+    color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 10px;
+}
+
+body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCCexBNVfDMrOiTP9ujtcvBleTL2MJAP2j7A&usqp=CAU");
+    background-repeat:repeat-y ;
+    background-size: 100% ;
+}
+
+#content{
+    color: white;
+    margin: 20px auto;
+}
+
+#contentByname{
+    color: white;
+    margin: 20px auto;
+}
