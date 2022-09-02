@@ -5,6 +5,8 @@ document.getElementById('navbar').innerHTML = navbar();
 document.getElementById('btn').addEventListener('click', SearchDish);
 async function SearchDish(){
     const search = document.getElementById("search").value;
+    const currUser = document.getElementById("Userdetails");
+    currUser.innerHTML = ``
     try{
         const res = await fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${search}`);
         const res2 = await res.json();
@@ -32,4 +34,19 @@ async function SearchDish(){
 }
 
 
+ShowDetails();
+function ShowDetails(){
+    var user = JSON.parse(localStorage.getItem('currUser'));
+    const Details = document.getElementById("Userdetails");
+    Details.innerHTML = `
+    <h3>${user.Name}</h3>
+    <h3>${user.Email}</h3>
+    <h3>${user.Mobile}</h3>
+    `
+}
+
+// Email: "hardeep41016@gmail.com"
+// Mobile: "9050741016"
+// Name: "Hardeep "
+// Password: "hs@41016"
 // random recepie
